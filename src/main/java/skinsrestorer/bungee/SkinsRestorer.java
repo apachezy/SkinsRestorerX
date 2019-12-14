@@ -8,20 +8,17 @@ import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.plugin.Plugin;
-import org.bstats.bungeecord.Metrics;
-import org.inventivetalent.update.spiget.UpdateCallback;
+//import org.bstats.bungeecord.Metrics;
+//import org.inventivetalent.update.spiget.UpdateCallback;
 import skinsrestorer.bungee.commands.SrCommand;
 import skinsrestorer.bungee.commands.SkinCommand;
 import skinsrestorer.bungee.listeners.LoginListener;
 import skinsrestorer.shared.storage.Config;
 import skinsrestorer.shared.storage.Locale;
 import skinsrestorer.shared.storage.SkinStorage;
-import skinsrestorer.shared.update.UpdateChecker;
-import skinsrestorer.shared.update.UpdateCheckerGitHub;
 import skinsrestorer.shared.utils.*;
 
 import java.io.File;
-import java.util.concurrent.TimeUnit;
 
 @SuppressWarnings("Duplicates")
 public class SkinsRestorer extends Plugin {
@@ -35,7 +32,7 @@ public class SkinsRestorer extends Plugin {
     private String configPath = "plugins" + File.separator + "SkinsRestorer" + File.separator + "";
 
     private CommandSender console;
-    private UpdateChecker updateChecker;
+    //private UpdateChecker updateChecker;
 
     @Getter
     private SkinApplier skinApplier;
@@ -57,16 +54,16 @@ public class SkinsRestorer extends Plugin {
     @Override
     public void onEnable() {
         srLogger = new SRLogger();
-        Metrics metrics = new Metrics(this);
-        if (metrics.isEnabled()) {
-            metrics.addCustomChart(new Metrics.SingleLineChart("mineskin_calls", MetricsCounter::collectMineskin_calls));
-            metrics.addCustomChart(new Metrics.SingleLineChart("minetools_calls", MetricsCounter::collectMinetools_calls));
-            metrics.addCustomChart(new Metrics.SingleLineChart("mojang_calls", MetricsCounter::collectMojang_calls));
-            metrics.addCustomChart(new Metrics.SingleLineChart("backup_calls", MetricsCounter::collectBackup_calls));
-        }
+        //Metrics metrics = new Metrics(this);
+        //if (metrics.isEnabled()) {
+        //    metrics.addCustomChart(new Metrics.SingleLineChart("mineskin_calls", MetricsCounter::collectMineskin_calls));
+        //    metrics.addCustomChart(new Metrics.SingleLineChart("minetools_calls", MetricsCounter::collectMinetools_calls));
+        //    metrics.addCustomChart(new Metrics.SingleLineChart("mojang_calls", MetricsCounter::collectMojang_calls));
+        //    metrics.addCustomChart(new Metrics.SingleLineChart("backup_calls", MetricsCounter::collectBackup_calls));
+        //}
 
         console = getProxy().getConsole();
-
+/*
         if (Config.UPDATER_ENABLED) {
             this.updateChecker = new UpdateCheckerGitHub(2124, this.getDescription().getVersion(), this.srLogger, "SkinsRestorerUpdater/BungeeCord");
             this.checkUpdate(true);
@@ -74,7 +71,7 @@ public class SkinsRestorer extends Plugin {
             if (Config.UPDATER_PERIODIC)
                 this.getProxy().getScheduler().schedule(this, this::checkUpdate, 10, 10, TimeUnit.MINUTES);
         }
-
+*/
         instance = this;
 
         this.skinStorage = new SkinStorage();
@@ -162,7 +159,7 @@ public class SkinsRestorer extends Plugin {
         ProxyServer.getInstance().getScheduler().runAsync(SkinsRestorer.getInstance(), this.skinStorage::preloadDefaultSkins);
         return true;
     }
-
+/*
     private void checkUpdate() {
         this.checkUpdate(false);
     }
@@ -190,5 +187,5 @@ public class SkinsRestorer extends Plugin {
                 }
             });
         });
-    }
+    }*/
 }

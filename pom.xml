@@ -68,7 +68,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.14-pre5-SNAPSHOT</version>
+            <version>1.12.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <!-- BungeeCord API -->
@@ -115,28 +115,28 @@
             <scope>provided</scope>
         </dependency>
         <!-- bStats Lite for Bukkit -->
-        <dependency>
+        <!--dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
             <version>1.4</version>
             <scope>compile</scope>
-        </dependency>
+        </dependency-->
         <!-- bStats Lite for BungeeCord -->
-        <dependency>
+        <!--dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bungeecord</artifactId>
             <version>1.4</version>
             <scope>compile</scope>
-        </dependency>
+        </dependency-->
         <!-- bStats Lite for Sponge -->
-        <dependency>
+        <!--dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-sponge</artifactId>
             <version>1.4</version>
             <scope>compile</scope>
-        </dependency>
+        </dependency-->
         <!-- Spiget Updater for Bukkit -->
-        <dependency>
+        <!--dependency>
             <groupId>org.inventivetalent.spiget-update</groupId>
             <artifactId>bukkit</artifactId>
             <version>1.4.0</version>
@@ -147,7 +147,7 @@
                 </exclusion>
             </exclusions>
             <scope>compile</scope>
-        </dependency>
+        </dependency-->
         <!-- HikariCP (SQLite/MySQL) -->
         <dependency>
             <groupId>com.zaxxer</groupId>
@@ -226,18 +226,18 @@
                 <configuration>
                     <createDependencyReducedPom>false</createDependencyReducedPom>
                     <relocations>
-                        <relocation>
+                        <!--relocation>
                             <pattern>org.bstats.bukkit</pattern>
                             <shadedPattern>skinsrestorer.shared.utils.metrics.bukkit</shadedPattern>
-                        </relocation>
-                        <relocation>
+                        </relocation-->
+                        <!--relocation>
                             <pattern>org.bstats.bungeecord</pattern>
                             <shadedPattern>skinsrestorer.shared.utils.metrics.bungeecord</shadedPattern>
-                        </relocation>
-                        <relocation>
+                        </relocation-->
+                        <!--relocation>
                             <pattern>org.inventivetalent</pattern>
                             <shadedPattern>skinsrestorer.shared.utils.updater</shadedPattern>
-                        </relocation>
+                        </relocation-->
                         <relocation>
                             <pattern>co.aikar.commands</pattern>
                             <shadedPattern>skinsrestorer.shared.utils.acf</shadedPattern>

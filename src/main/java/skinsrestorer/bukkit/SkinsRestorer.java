@@ -4,12 +4,12 @@ import co.aikar.commands.BukkitCommandIssuer;
 import co.aikar.commands.ConditionFailedException;
 import co.aikar.commands.PaperCommandManager;
 import lombok.Getter;
-import org.bstats.bukkit.Metrics;
+//import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.inventivetalent.update.spiget.UpdateCallback;
+//import org.inventivetalent.update.spiget.UpdateCallback;
 import skinsrestorer.bukkit.commands.GUICommand;
 import skinsrestorer.bukkit.commands.SkinCommand;
 import skinsrestorer.bukkit.commands.SrCommand;
@@ -19,8 +19,6 @@ import skinsrestorer.bukkit.skinfactory.UniversalSkinFactory;
 import skinsrestorer.shared.storage.Config;
 import skinsrestorer.shared.storage.Locale;
 import skinsrestorer.shared.storage.SkinStorage;
-import skinsrestorer.shared.update.UpdateChecker;
-import skinsrestorer.shared.update.UpdateCheckerGitHub;
 import skinsrestorer.shared.utils.*;
 
 import java.io.*;
@@ -31,15 +29,14 @@ public class SkinsRestorer extends JavaPlugin {
     private static SkinsRestorer instance;
     @Getter
     private SkinFactory factory;
-    @Getter
-    private UpdateChecker updateChecker;
+    //@Getter
+    //private UpdateChecker updateChecker;
     @Getter
     private String configPath = "plugins" + File.separator + "SkinsRestorer" + File.separator + "";
 
     @Getter
     private boolean bungeeEnabled;
     private boolean updateDownloaded = false;
-    private UpdateDownloaderGithub updateDownloader;
     private CommandSender console;
     @Getter
     private SRLogger srLogger;
@@ -57,7 +54,7 @@ public class SkinsRestorer extends JavaPlugin {
     public void onEnable() {
         console = getServer().getConsoleSender();
         srLogger = new SRLogger();
-
+/*
         Metrics metrics = new Metrics(this);
         if (metrics.isEnabled()) {
             metrics.addCustomChart(new Metrics.SingleLineChart("mineskin_calls", MetricsCounter::collectMineskin_calls));
@@ -65,7 +62,7 @@ public class SkinsRestorer extends JavaPlugin {
             metrics.addCustomChart(new Metrics.SingleLineChart("mojang_calls", MetricsCounter::collectMojang_calls));
             metrics.addCustomChart(new Metrics.SingleLineChart("backup_calls", MetricsCounter::collectBackup_calls));
         }
-
+*/
         instance = this;
         factory = new UniversalSkinFactory();
 
@@ -89,7 +86,7 @@ public class SkinsRestorer extends JavaPlugin {
 
         // Check if we are running in bungee mode
         this.checkBungeeMode();
-
+/*
         // Check for updates
         if (Config.UPDATER_ENABLED) {
             this.updateChecker = new UpdateCheckerGitHub(2124, this.getDescription().getVersion(), this.srLogger, "SkinsRestorerUpdater/Bukkit");
@@ -101,7 +98,7 @@ public class SkinsRestorer extends JavaPlugin {
                     this.checkUpdate(bungeeEnabled, false);
                 }, 20 * 60 * 10, 20 * 60 * 10);
         }
-
+*/
         this.skinStorage = new SkinStorage();
 
         if (bungeeEnabled) {
@@ -248,7 +245,7 @@ public class SkinsRestorer extends JavaPlugin {
         }
 
     }
-
+/*
     private void checkUpdate(boolean bungeeMode) {
         this.checkUpdate(bungeeMode, true);
     }
@@ -285,5 +282,5 @@ public class SkinsRestorer extends JavaPlugin {
                 }
             });
         });
-    }
+    }*/
 }
